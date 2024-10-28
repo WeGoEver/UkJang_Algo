@@ -1,4 +1,4 @@
-public class Programmers_피자나눠먹기2 {
+public class Programmers_피자나눠먹기3 {
     public static void main(String[] args){
 
         Solution solution = new Solution();
