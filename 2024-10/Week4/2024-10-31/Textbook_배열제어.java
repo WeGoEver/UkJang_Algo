@@ -30,6 +30,8 @@ public class Textbook_배열제어{
                 newList.add(i);
             }
         }
+
+        //Integer[] result = Arrays.stream(arr).boxed().distinct().toArray(Integer[]::new);
         
         // 내림차순 정렬
         Collections.sort(newList, Collections.reverseOrder());
