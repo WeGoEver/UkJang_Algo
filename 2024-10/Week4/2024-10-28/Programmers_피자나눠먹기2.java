@@ -4,16 +4,18 @@ public class Programmers_피자나눠먹기2 {
         int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
         System.out.print(solution.solution(arr));
     }
-}
 
-class Solution {
-    public double solution(int[] numbers) {
-        double answer = 0;
+    private static class Solution {
+        public double solution(int[] numbers) {
+            double answer = 0;
 
-        for (int i = 0; i < numbers.length; i++) {
-            answer += numbers[i];
+            for (int i = 0; i < numbers.length; i++) {
+                answer += numbers[i];
+            }
+
+            return answer / numbers.length;
         }
-
-        return answer / numbers.length;
     }
 }
+
+

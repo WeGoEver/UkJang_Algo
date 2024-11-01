@@ -5,20 +5,21 @@ public class Programmers_피자나눠먹기3 {
 
         System.out.print(solution.solution(7, 10));
     }
-}
 
-class Solution{
-    public int solution(int slice, int n) {
-        int answer = 0;
+    private static class Solution{
+        public int solution(int slice, int n) {
+            int answer = 0;
 
-        int tmp = n % slice;
+            int tmp = n % slice;
 
-        if(tmp == 0){
-            answer = n / slice;
-        } else{
-            answer = n / slice + 1;
+            if(tmp == 0){
+                answer = n / slice;
+            } else{
+                answer = n / slice + 1;
+            }
+
+            return answer;
         }
-
-        return answer;
     }
 }
+

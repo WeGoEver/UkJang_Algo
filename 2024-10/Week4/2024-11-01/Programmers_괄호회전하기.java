@@ -9,61 +9,63 @@ public class Programmers_괄호회전하기 {
 
         System.out.println(solution.solution(input));
     }
-}
 
-class Solution {
-    public int solution(String input){
+    private class Solution {
+        public int solution(String input){
 
-        String rolling = input;
+            String rolling = input;
 
-        int count = 0;
+            int count = 0;
 
-        for(int i = 0; i < rolling.length(); i++){
+            for(int i = 0; i < rolling.length(); i++){
 
-            if(isValid(rolling)){
-                count++;
+                if(isValid(rolling)){
+                    count++;
+                }
+
+                // 문자열 회전
+                rolling = rolling.substring(1)+rolling.charAt(0);
+
             }
 
-            // 문자열 회전
-            rolling = rolling.substring(1)+rolling.charAt(0);
-
+            return count;
         }
 
-        return count;
-    }
+        public boolean isValid(String string) {
 
-    public boolean isValid(String string) {
+            char[] brackets = string.toCharArray();
 
-        char[] brackets = string.toCharArray();
+            Stack<Character> stack = new Stack<>();
 
-        Stack<Character> stack = new Stack<>();
+            for(int i = 0; i < brackets.length; i++){
 
-        for(int i = 0; i < brackets.length; i++){
+                char tmp = brackets[i];
 
-            char tmp = brackets[i];
-
-            if( tmp == '[' || tmp == '{' || tmp == '('){
-                stack.add(tmp);
-            }
-            else if(tmp == ']'){
-                if(stack.isEmpty() || stack.peek() != '['){
-                    return false;
+                if( tmp == '[' || tmp == '{' || tmp == '('){
+                    stack.add(tmp);
                 }
-                stack.pop();
-            }
-            else if(tmp == '}'){
-                if(stack.isEmpty() || stack.peek() != '{'){
-                    return false;
+                else if(tmp == ']'){
+                    if(stack.isEmpty() || stack.peek() != '['){
+                        return false;
+                    }
+                    stack.pop();
                 }
-                stack.pop();
-            }
-            else if(tmp == ')'){
-                if(stack.isEmpty() || stack.peek() != '('){
-                    return false;
+                else if(tmp == '}'){
+                    if(stack.isEmpty() || stack.peek() != '{'){
+                        return false;
+                    }
+                    stack.pop();
                 }
-                stack.pop();
+                else if(tmp == ')'){
+                    if(stack.isEmpty() || stack.peek() != '('){
+                        return false;
+                    }
+                    stack.pop();
+                }
             }
+            return stack.isEmpty();
         }
-        return stack.isEmpty();
     }
+
 }
+

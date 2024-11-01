@@ -8,7 +8,7 @@ class Programmers_요세푸스{
         System.out.print(solution.solution(5, 2));
     }
 
-    public static class Solution {
+    private static class Solution {
         public int solution(int N, int K) {
 
             ArrayDeque<Integer> queue = new ArrayDeque<>();
@@ -36,7 +36,6 @@ class Programmers_요세푸스{
                 index++;
 
             }
-
             return queue.peekFirst();
         }
     }
