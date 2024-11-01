@@ -10,7 +10,7 @@ public class Programmers_괄호회전하기 {
         System.out.println(solution.solution(input));
     }
 
-    private class Solution {
+    private static class Solution {
         public int solution(String input){
 
             String rolling = input;

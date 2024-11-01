@@ -1,7 +1,7 @@
 import java.util.ArrayDeque;
 import java.util.HashMap;
 
-public class Programmers_괄호회전하기_answer {
+public class Programmers_괄호회전하기_answer{
     public static void main(String[] args) {
 
         Solution solution = new Solution();
@@ -11,7 +11,8 @@ public class Programmers_괄호회전하기_answer {
         System.out.println(solution.solution(input));
     }
 
-    private class Solution {
+    // Solution 클래스를 정적(static)으로 변경
+    private static class Solution {
         public int solution(String s) {
             // ❶ 괄호 정보를 저장함. 코드를 간결하게 할 수 있음
             HashMap<Character, Character> map = new HashMap<>();
@@ -49,6 +50,4 @@ public class Programmers_괄호회전하기_answer {
             return answer;
         }
     }
-
 }
-

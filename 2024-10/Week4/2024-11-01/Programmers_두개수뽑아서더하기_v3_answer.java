@@ -1,5 +1,5 @@
-import java.util.Arrays;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Programmers_두개수뽑아서더하기_v3_answer {
     public static void main(String[] args) {
@@ -11,7 +11,7 @@ public class Programmers_두개수뽑아서더하기_v3_answer {
         System.out.print(Arrays.toString(solution.solution(arr)));
     }
 
-    private class Solution {
+    private static class Solution {
         public int[] solution(int[] arr){
 
             ArrayList<Integer> list = new ArrayList<>();
