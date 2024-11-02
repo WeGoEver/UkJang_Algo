@@ -1,0 +1,71 @@
+import java.util.HashSet;
+
+public class Programmers_방문길이 {
+    public static void main(String[] args) {
+
+        Solution solution = new Solution();
+
+        String dirs = "LULLLLLLU";
+
+        System.out.println(solution.solution(dirs));
+    }
+
+    // Solution 클래스를 정적(static)으로 변경
+    private static class Solution {
+        public int solution(String dirs) {
+
+            // dirs to char 배열로 변경
+            char[] dirsArray = dirs.toCharArray();
+
+            // HashSet 선언
+            HashSet<String> route = new HashSet<>();
+
+            int[] position = { 5, 5 };
+
+            // char 배열의 길이만큼 for 문 돌면서 경로 탐색
+            // 경로 탐색하면서 지나온 루트 HashSet에 추가
+            // 루트 이동 시 경계를 넘어가는 숫자는 무시해야함.
+            // HashSet을 이용하연 중복된 루트는 자동으로 걸러짐
+            for (int i = 0; i < dirsArray.length; i++) {
+
+                String before = Integer.toString(position[0]) + Integer.toString(position[1]);
+
+                if (dirsArray[i] == 'U') {
+
+                    if (position[1] < 10) {
+                        position[1]++;
+                    }
+                } else if (dirsArray[i] == 'D') {
+
+                    if (position[1] > 0) {
+                        position[1]--;
+                    }
+                } else if (dirsArray[i] == 'R') {
+
+                    if (position[0] < 10) {
+                        position[0]++;
+                    }
+                } else if (dirsArray[i] == 'L') {
+
+                    if (position[0] > 0) {
+                        position[0]--;
+                    }
+                }
+
+                String after = Integer.toString(position[0]) + Integer.toString(position[1]);
+
+                //System.out.println(before + after);
+
+                if(!before.equals(after)){
+                    route.add(before + after);
+                    route.add(after + before);
+                }
+            }
+
+            // HashSet에 저장된 데이터 개수 반환
+            int answer = route.size() / 2;
+
+            return answer;
+        }
+    }
+}
