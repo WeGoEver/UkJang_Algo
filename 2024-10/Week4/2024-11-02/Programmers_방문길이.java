@@ -28,8 +28,10 @@ public class Programmers_방문길이 {
             // HashSet을 이용하연 중복된 루트는 자동으로 걸러짐
             for (int i = 0; i < dirsArray.length; i++) {
 
+                // 이동하기 이전 좌표 before
                 String before = Integer.toString(position[0]) + Integer.toString(position[1]);
 
+                // 경계를 넘어가면 좌표 이동 X
                 if (dirsArray[i] == 'U') {
 
                     if (position[1] < 10) {
@@ -52,17 +54,19 @@ public class Programmers_방문길이 {
                     }
                 }
 
+                // 이동 이후 좌표 after
                 String after = Integer.toString(position[0]) + Integer.toString(position[1]);
 
                 //System.out.println(before + after);
 
+                // 이전 좌표 -> 이후 좌표, 이후 좌표 -> 이전 좌표 의 경로는 동일한 route이기 때문에 둘다 HashSet에 저장
+                // 이전 좌표 == 이후 좌표 일 경우 이동한 경로가 없는 것.
                 if(!before.equals(after)){
                     route.add(before + after);
                     route.add(after + before);
                 }
             }
 
-            // HashSet에 저장된 데이터 개수 반환
             int answer = route.size() / 2;
 
             return answer;
