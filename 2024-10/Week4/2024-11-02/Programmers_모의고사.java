@@ -45,24 +45,28 @@ public class Programmers_모의고사 {
                 }
             }
 
+            // max 값 찾기
+            int maxScore = Arrays.stream(corrected).max().getAsInt();
+
             ArrayList<Integer> list = new ArrayList<>();
 
             for (int i = 0; i < corrected.length; i++) {
 
-                if (corrected[i] == max) {
+                if (corrected[i] == maxScore) {
 
                     list.add(i + 1);
                 }
 
             }
 
-            int[] winner = new int[list.size()];
+            // ArrayList인 list을 winner 배열로 바꾸기
+            // int[] winner = new int[list.size()];
 
-            for (int i = 0; i < winner.length; i++) {
-                winner[i] = list.get(i);
-            }
+            // for (int i = 0; i < winner.length; i++) {
+            //     winner[i] = list.get(i);
+            // }
 
-            return winner;
+            return list.stream().mapToInt(Integer::intValue).toArray();
         }
     }
 }
