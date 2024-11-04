@@ -27,13 +27,14 @@ public class Programmers_짝지어제거하기{
                 }
             }
 
-            int answer = 0;
+            // int answer = 0;
 
-            if(stack.isEmpty()){
-                answer = 1;
-            }
+            // if(stack.isEmpty()){
+            //     answer = 1;
+            // }
 
-            return answer;
+            // 삼항 연산자로 출력 가능
+            return stack.isEmpty() ? 0 : 1; 
         }
     }
 }
