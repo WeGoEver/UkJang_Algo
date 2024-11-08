@@ -1,44 +1,49 @@
-import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
 
 public class Main {
     public static void main(String[] args) {
 
         Solution solution = new Solution();
 
-        int N = 5;
-        int K = 2;
+        //[3, 76, 24]	[3, 1, 2]
 
-        System.out.print(solution.solution(N, K));
+        int[] emergency = {3, 76, 24};
+
+        System.out.print(Arrays.toString(solution.solution(emergency)));
     }
 
     private static class Solution {
-        public int solution(int N, int K) {
+        public int[] solution(int[] emergency) {
 
-            ArrayDeque<Integer> queue = new ArrayDeque();
+            HashMap<Integer, Integer> map = new HashMap<>();
 
-            for (int i = 1; i <= N; i++) {
-                queue.addLast(i);
+            ArrayList<Integer> list = new ArrayList<>();
+
+            for(int i = 0; i < emergency.length; i++){
+                map.put(emergency[i] , i);
+                list.add(emergency[i]);
             }
 
-            int index = 1;
+            System.out.println(map.toString());
 
-            while (queue.size() > 1) {
+            Collections.sort(list, Collections.reverseOrder());
 
-                if (index % K != 2) {
-
-                    int tmp = queue.pollFirst();
-                    queue.addLast(tmp);
-
-                } else {
-
-                    queue.pollFirst();
-                }
-
-                index++;
-
+            for(int i = 0; i < list.size(); i++){
+                map.put(list.get(i) , i + 1);
             }
 
-            return queue.peekFirst();
+            int[] answer = new int[emergency.length];
+
+            for (int i = 0; i < emergency.length; i++){
+
+                answer[i] = map.get(emergency[i]);
+
+            }
+            
+            return answer;
         }
     }
 
