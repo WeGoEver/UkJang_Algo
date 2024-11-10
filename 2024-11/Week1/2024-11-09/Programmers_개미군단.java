@@ -31,6 +31,7 @@ public class Programmers_개미군단 {
                 answer = answer + hp / 1;
                 //hp = hp % 5;
             }
+            
 
             return answer;
         }
