@@ -1,5 +1,5 @@
 
-public class Programmers_예상대진표 {
+public class Programmers_Level2_예상대진표 {
 
     public static void main(String[] args) {
 
