@@ -39,6 +39,8 @@ public class Programmers_Level2_메뉴리뉴얼 {
             for(int i = idx ; i < order.length; i++){
                 combinations(i + 1, order, result + order[i]);
             }
+
+            
         }
     }
 }
